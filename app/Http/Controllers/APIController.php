@@ -22,6 +22,11 @@ class APIController extends Controller
                 'password'      =>      'required|min:6',
                 'phone_no'      =>      'required|max:10',
                 'subscription'  =>      'required',
+                'gender'        =>      'required',
+                'subject'       =>      'required',
+                'date'          =>      'required|date',
+                'age'           =>      'required|numeric',
+                //'image' =>      'required|mimes:csv,txt,xlx,xls,pdf|max:2048|min:100'  
             ]);
 
     		$registers = new registers;
@@ -31,6 +36,10 @@ class APIController extends Controller
     		$registers->password = md5($request->password);
     		$registers->phone_no = $request->phone_no;
     		$registers->subscription = $request->subscription;
+    		$registers->gender = $request->gender;
+    		$registers->subject = $request->subject;
+    		$registers->date = $request->date;
+    		$registers->age = $request->age;
     		
 
     		$result = $registers->save();
@@ -55,6 +64,10 @@ class APIController extends Controller
     		$registers->password = md5($request->password);
     		$registers->phone_no = $request->phone_no;
     		$registers->subscription = $request->subscription;
+    		$registers->gender = $request->gender;
+    		$registers->subject = $request->subject;
+    		$registers->date = $request->date;
+    		$registers->age = $request->age;
 
 
     		$result = $registers->save();
@@ -80,7 +93,7 @@ class APIController extends Controller
     	}
     }
 
-    public function upload(Request $request)
+    /*public function upload(Request $request)
     {
     	
     	$request->validate([
@@ -88,5 +101,5 @@ class APIController extends Controller
         ]);
 
     	$request->file('image')->store('tests');
-    }
+    }*/
 }
