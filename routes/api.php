@@ -22,3 +22,4 @@ Route::get("data",[APIController::class,'getData']);
 Route::post("add",[APIController::class,'add']);
 Route::put("update",[APIController::class,'update']);
 Route::delete("delete/{id}",[APIController::class,'delete']);
+Route::post("upload",[APIController::class,'upload']);

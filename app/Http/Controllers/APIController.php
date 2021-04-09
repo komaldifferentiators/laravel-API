@@ -31,6 +31,7 @@ class APIController extends Controller
     		$registers->password = md5($request->password);
     		$registers->phone_no = $request->phone_no;
     		$registers->subscription = $request->subscription;
+    		
 
     		$result = $registers->save();
     		if($result)
@@ -55,6 +56,7 @@ class APIController extends Controller
     		$registers->phone_no = $request->phone_no;
     		$registers->subscription = $request->subscription;
 
+
     		$result = $registers->save();
     		if($result)
     		{
@@ -76,5 +78,19 @@ class APIController extends Controller
     	{
     		return ["result"=>"Delete operation failed!"];
     	}
+    }
+
+    public function upload(Request $request)
+    {
+    	
+
+    	$request->validate([
+        'image' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048|min:100'
+        ]);
+
+    	$request->file('image')->store('tests');
+
+
+
     }
 }
