@@ -83,14 +83,10 @@ class APIController extends Controller
     public function upload(Request $request)
     {
     	
-
     	$request->validate([
         'image' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048|min:100'
         ]);
 
     	$request->file('image')->store('tests');
-
-
-
     }
 }
