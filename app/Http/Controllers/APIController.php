@@ -10,10 +10,16 @@ use File;
 
 class APIController extends Controller
 {
-    public function getData(Request $request)
+    /*public function getData(Request $request)
     {
     		return registers::all();
+    }*/
+
+    public function getData($name)
+    {
+    		return registers::where("f_name",$name)->get();
     }
+
 
     public function testData(Request $request)
     {

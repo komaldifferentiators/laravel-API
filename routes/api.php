@@ -18,7 +18,7 @@ use App\Http\Controllers\APIController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get("data",[APIController::class,'getData']);
+Route::get("data/{name}",[APIController::class,'getData']);
 //Route::post("add",[APIController::class,'add']);
 Route::put("update/{id}",[APIController::class,'update']);
 Route::delete("delete/{id}",[APIController::class,'delete']);
